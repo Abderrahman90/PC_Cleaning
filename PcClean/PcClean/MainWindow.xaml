@@ -1,0 +1,56 @@
+﻿<Window x:Class="PcClean.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PcClean"
+        mc:Ignorable="d"
+        x:Name="fenetre"
+        Title="Logiciel Nettoyage" Height="700" Width="1000" Icon="/broom.png" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,-16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="126*"/>
+            <ColumnDefinition Width="105*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="125" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FF136573" Grid.ColumnSpan="3"/>
+        <Label x:Name="titre" Content="Analyse du PC nécessaire" HorizontalAlignment="Left" Margin="16,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.649,-1.242" Foreground="#FFFAFAFA" FontFamily="Arial Black" FontWeight="Bold" FontSize="25" Grid.ColumnSpan="2" Height="39" Width="365"/>
+        <!--<Button x:Name="Btn" Content="Mon Bouton" HorizontalAlignment="Left" Margin="310,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="-7.191,-0.036" Background="#FFA2E236" Click="Btn_Click"/>-->
+        <Label Content="Espace à nettoyer : " HorizontalAlignment="Left" Margin="26,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.649,-1.242" Foreground="#FFFAFAFA" FontFamily="Agency FB" FontWeight="Bold" FontSize="19" Grid.ColumnSpan="2" Height="32" Width="138"/>
+        <Label Content="Dernière analyse : " HorizontalAlignment="Left" Margin="26,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.649,-1.242" Foreground="#FFFAFAFA" FontFamily="Agency FB" FontWeight="Bold" FontSize="19" Grid.ColumnSpan="2" Height="32" Width="132"/>
+        <Label x:Name="date" Content="Jamais" HorizontalAlignment="Left" Margin="90,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.649,-1.242" Foreground="#FFFAFAFA" FontFamily="Agency FB" FontSize="19" Width="115" Grid.Column="1" Height="32"/>
+        <Label x:Name="espace" Content="??? Mb" HorizontalAlignment="Left" Margin="93,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.649,-1.242" Foreground="#FFFAFAFA" FontFamily="Agency FB" FontSize="19" Width="75" Grid.Column="1" Height="32"/>
+        <Button Content="ANALYSER" HorizontalAlignment="Left" Margin="161,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.436,-1.462" Height="41" Width="138" Background="#FF43CB77" BorderThickness="5,5,5,5" BorderBrush="White" Foreground="White" FontFamily="Agency FB" FontWeight="Bold" FontSize="22" Grid.Column="2" Click="Button_Analyser_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="8" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FF898888" Margin="0,125,0,0" StrokeThickness="0" Grid.ColumnSpan="3"/>
+        <!--Contenu de mon projet WPF-->
+        <Button x:Name="btnClean" Content="&#xA;&#xA;NETTOYER" HorizontalAlignment="Left" Margin="16,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.436,-1.462" Height="246" Width="448" Background="#FF136573" BorderThickness="5,5,5,5" BorderBrush="White" Foreground="White" FontFamily="Agency FB" FontWeight="Bold" FontSize="22" Grid.ColumnSpan="2" Click="Button_Nettoyer_Click"/>
+        <Button Content="&#xA;&#xA;MISE A JOUR" HorizontalAlignment="Left" Margin="13,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.436,-1.462" Height="213" Width="454" Background="#FF136573" BorderThickness="5,5,5,5" BorderBrush="White" Foreground="White" FontFamily="Agency FB" FontWeight="Bold" FontSize="22" Grid.ColumnSpan="2" Click="Button_Maj_Click"/>
+        <Button Content="&#xA;&#xA;  HISTORIQUE" HorizontalAlignment="Center" Margin="0,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.436,-1.462" Height="241" Width="400" Background="#FF136573" BorderThickness="5,5,5,5" BorderBrush="White" Foreground="White" FontFamily="Agency FB" FontWeight="Bold" FontSize="22" Grid.Column="2" Click="Button_Histo_Click"/>
+        <Button Content="&#xA;&#xA;&#xA; SITE WEB" HorizontalAlignment="Center" Margin="0,363,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.436,-1.462" Height="221" Width="400" Background="#FF136573" BorderThickness="5,5,5,5" BorderBrush="White" Foreground="White" FontFamily="Agency FB" FontWeight="Bold" FontSize="22" Grid.Column="2" Click="Button_Web_Click"/>
+        <Image Grid.Column="2" Margin="168,396,161,201" Source="C:\Users\Master the Matrix\source\repos\PcClean\PcClean\web.png" Stretch="UniformToFill"/>
+        <Image x:Name="broom2" Grid.Column="1" Margin="113,164,300,443" Source="/broom2.png" Stretch="UniformToFill"/>
+        <Image x:Name="history" Grid.Column="2" Margin="178,166,158,437" Source="/history.png" Stretch="Uniform"/>
+        <Image x:Name="update" Grid.Column="1" Margin="109,395,304,205" Source="/update.png" Stretch="UniformToFill"/>
+
+        <!--Footer-->
+        <Rectangle HorizontalAlignment="Left" Height="98" Stroke="Black" VerticalAlignment="Top" Width="1000" Fill="#FF898888" Margin="0,592,0,0" StrokeThickness="0" Grid.ColumnSpan="3"/>
+        <Label Content="Copyright 2024 - Abde" HorizontalAlignment="Center" VerticalContentAlignment="Center" Margin="329,592,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.649,-1.242" Foreground="Black" FontFamily="Agency FB" FontSize="19" Width="172" Grid.Column="1" Height="32"/>
+        <Rectangle x:Name="bandeauActu" HorizontalAlignment="Left" Height="50" Stroke="Black" VerticalAlignment="Top" Width="990" Fill="#FFDD5656" Margin="0,624,0,0" StrokeThickness="0" Visibility="Hidden" Grid.ColumnSpan="3"/>
+        <Label x:Name="ActuTxt" 
+       Content="" 
+       Grid.Column="1" 
+       Grid.ColumnSpan="2"
+       Margin="0,630,0,0"
+       Height="50"
+       Visibility="Hidden"
+       HorizontalAlignment="Center"
+       VerticalAlignment="Top"
+       Foreground="White"
+       FontWeight="Bold"
+       FontSize="16"
+       />
+
+
+
+    </Grid>
+</Window>
