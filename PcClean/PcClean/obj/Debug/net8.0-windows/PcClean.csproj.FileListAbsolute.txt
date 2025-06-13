@@ -19,3 +19,4 @@ C:\Users\Master the Matrix\source\repos\PcClean\PcClean\obj\Debug\net8.0-windows
 C:\Users\Master the Matrix\source\repos\PcClean\PcClean\obj\Debug\net8.0-windows\PcClean.genruntimeconfig.cache
 C:\Users\Master the Matrix\source\repos\PcClean\PcClean\obj\Debug\net8.0-windows\ref\PcClean.dll
 C:\Users\Master the Matrix\source\repos\PcClean\PcClean\bin\Debug\net8.0-windows\web.png
+C:\Users\Master the Matrix\source\repos\PcClean\PcClean\obj\Debug\net8.0-windows\PcClean.sourcelink.json
