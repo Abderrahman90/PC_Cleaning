@@ -20,7 +20,8 @@ namespace PcClean
             InitializeComponent();
             winTemp = new DirectoryInfo(@"C:\Windows\Temp"); // pourquoi ne pas mettre le chemin en dur car il est spécifique à chaque personne et cela permet de d'avoir des infos sur la taille du dossier
             appTemp = new DirectoryInfo(System.IO.Path.GetTempPath());
-            _=CheckActuAsync();  // ✅ Supprime l'avertissement, tâche lancée en arrière-plan ou au mieux, dans un `async void Window_Loaded` handler
+
+            _ = CheckActuAsync();  // ✅ Supprime l'avertissement, tâche lancée en arrière-plan ou au mieux, dans un `async void Window_Loaded` handler
 
             //CheckActuAsync().ConfigureAwait(true); ConfigureAwait(true) retourne une Task mais vous ne l'attendez pas avec await 
             //Dans un constructeur(qui n'est pas async), cette ligne ne fait effectivement rien d'utile

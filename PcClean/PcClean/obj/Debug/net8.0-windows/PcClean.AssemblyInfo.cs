@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PcClean")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d054868d5ce7f3556b13fbf6208bd29d3fdd73e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d62e8474f3b0a99ee39be67258e247f0002ddd39")]
 [assembly: System.Reflection.AssemblyProductAttribute("PcClean")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PcClean")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
