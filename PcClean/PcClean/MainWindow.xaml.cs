@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Windows;
+using System.Windows.Media;
 
 
 namespace PcClean
@@ -33,54 +34,50 @@ namespace PcClean
 
         public async Task CheckActuAsync()
         {
-            // Je déclare toujours ma variable avant de faire des traitements dessus = clean code et hiérarchie logique
-            string url = "http://localhost/testWeb/actu";
+            string url = "http://localhost/testWeb/actu.txt";
             try
             {
-                
-                
-                    // Envoyer une requête HTTP et récupérer les données en bytes
-                    using HttpResponseMessage response = await client.GetAsync(url);
-
-                    // On vérifie que le statut HTTP est 2xx
-                    response.EnsureSuccessStatusCode();
-
-                // Lire le contenu de mon fichier ou URL en bytes
-                //byte[] responseBytes = await response.Content.ReadAsByteArrayAsync();
-
-                // Ensuite je convertis explicitement en UTF-8
-                //string responseBody = Encoding.UTF8.GetString(responseBytes);
-                //Console.WriteLine(responseBody);
-
-                //  j'ai enfin simplfié mon code 
+                using HttpResponseMessage response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                    // Mettre le contenu dans le label et afficher le bandeau
-                    
-                        
-
-                            ActuTxt.Content = responseBody;
-                            ActuTxt.Visibility = Visibility.Visible;
-                            bandeauActu.Visibility = Visibility.Visible;
-                            
-                            //bandeauActu.UpdateLayout();
-                        
-                    
-                
+                // ✅ Vérifier si le contenu est vide ou null
+                if (string.IsNullOrWhiteSpace(responseBody))
+                {
+                    // Fichier vide ou contenu vide
+                    ActuTxt.Content = "Aucune actualité disponible pour le moment";
+                    ActuTxt.Foreground = new SolidColorBrush(Colors.Yellow);
+                    ActuTxt.Visibility = Visibility.Visible;
+                    bandeauActu.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    // Serveur accessible avec contenu
+                    ActuTxt.Content = responseBody;
+                    ActuTxt.Foreground = new SolidColorBrush(Colors.Black); // Couleur normale
+                    ActuTxt.Visibility = Visibility.Visible;
+                    bandeauActu.Visibility = Visibility.Visible;
+                }
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine("Erreur du réseau ou fichier inaccessible voire introuvable : " + e.Message);
+                // Serveur inaccessible ou fichier inexistant
+                ActuTxt.Content = "Service d'actualités indisponible, vérifiez si le serveur WAMP est lancé";
+                ActuTxt.Foreground = new SolidColorBrush(Colors.Orange);
+                ActuTxt.Visibility = Visibility.Visible;
+                bandeauActu.Visibility = Visibility.Visible;
+                Console.WriteLine($"Erreur HTTP: {e.Message}");
             }
             catch (Exception e)
             {
-                Console.WriteLine("Erreur inattendue : " + e.Message);
+                // Autres erreurs
+                ActuTxt.Content = "Erreur lors de la récupération des actualités";
+                ActuTxt.Foreground = new SolidColorBrush(Colors.GreenYellow);
+                ActuTxt.Visibility = Visibility.Visible;
+                bandeauActu.Visibility = Visibility.Visible;
+                Console.WriteLine($"Erreur générale: {e.Message}");
             }
         }
-
-
-
-
         // on va crée une méthode pour calculer la taille d'un dossier 
         public long DirSize(DirectoryInfo dir)
         {
